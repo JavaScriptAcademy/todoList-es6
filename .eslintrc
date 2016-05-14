@@ -6,8 +6,10 @@
   },
   "extends": "airbnb-base",
   "rules": {
-    "semi": [2, "never"],
+    "semi": [2],
     "arrow-body-style": ["error", "always"],
-    "no-console": 0
+    "no-console": 0,
+    "no-unused-expressions": 0,
+    "no-underscore-dangle": 0   
   }
 }

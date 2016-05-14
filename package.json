@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "eslint": "eslint src/*.js",
-    "build": "webpack",
-    "start": "http-server"
+    "test": "mocha --compilers js:babel-register ./test/*/*.spec.js",
+    "start": "http-server",
+    "build": "webapck"
   },
   "repository": {
     "type": "git",
@@ -27,10 +28,12 @@
   },
   "homepage": "https://github.com/JavaScriptAcademy/todoList-es6#readme",
   "devDependencies": {
+    "babel": "^6.5.2",
     "babel-core": "^6.8.0",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.6.0",
+    "babel-register": "^6.8.0",
     "eslint": "^2.9.0",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-config-airbnb-base": "^3.0.1",

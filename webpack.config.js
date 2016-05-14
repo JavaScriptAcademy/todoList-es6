@@ -1,5 +1,5 @@
 module.exports = {
-  entry: 'mocha!./src/entry.js',
+  entry: './src/entry.js',
   output: {
     path: './assets',
     filename: 'bundle.js',
@@ -16,4 +16,4 @@ module.exports = {
       },
     ],
   },
-}
+};
