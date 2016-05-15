@@ -2,10 +2,6 @@ import { generateUID } from '../helper/helper';
 
 class Todo {
   constructor(title) {
-    if (!title) {
-      throw new ReferenceError('This is a bad function.');
-    }
-
     this._id = generateUID();
     this._title = title;
     this._isComplete = false;
