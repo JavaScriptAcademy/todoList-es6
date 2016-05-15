@@ -13,6 +13,8 @@ class TodoList {
     const todo = new Todo(title);
 
     this._todolist.push(todo);
+
+    return todo;
   }
 
   findTodoById(id) {

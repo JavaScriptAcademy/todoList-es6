@@ -7,7 +7,7 @@
     "eslint": "eslint src/*.js",
     "test": "mocha --compilers js:babel-register ./test/*/*.spec.js",
     "start": "http-server",
-    "build": "webapck"
+    "build": "webpack -w"
   },
   "repository": {
     "type": "git",

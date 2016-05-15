@@ -1,3 +1,3 @@
-export function sum(x, y) {
-  return x + y;
-}
+import TodoController from './controller/todoController';
+
+const todoCtrl = new TodoController();
