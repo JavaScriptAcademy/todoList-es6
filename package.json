@@ -6,7 +6,7 @@
   "scripts": {
     "eslint": "eslint src/*.js",
     "test": "mocha --compilers js:babel-register ./test/*/*.spec.js",
-    "start": "http-server",
+    "start": "npm run eslint && npm run test && webpack && http-server",
     "build": "webpack -w"
   },
   "repository": {
@@ -28,7 +28,6 @@
   },
   "homepage": "https://github.com/JavaScriptAcademy/todoList-es6#readme",
   "devDependencies": {
-    "babel": "latest",
     "babel-core": "latest",
     "babel-eslint": "latest",
     "babel-loader": "latest",

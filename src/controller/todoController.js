@@ -3,9 +3,7 @@ import BaseController from './baseController';
 import View from '../view/view';
 
 class TodoController extends BaseController {
-  constructor() {
-    super();
-
+  initialize() {
     this.addSelectors();
     this.addModel('todolist', new TodoList());
 
