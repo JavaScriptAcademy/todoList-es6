@@ -3,9 +3,7 @@ import BaseController from './baseController';
 import View from '../view/view';
 
 class TodoController extends BaseController {
-  constructor() {
-    super();
-
+  initialize() {
     this.addSelectors();
     this.addModel('todolist', new TodoList());
 
@@ -14,6 +12,8 @@ class TodoController extends BaseController {
     this.ui.filterCompleted.addEventListener('click', this.filterCompleted.bind(this));
     this.ui.filterAll.addEventListener('click', this.filterAll.bind(this));
     this.ui.filterActive.addEventListener('click', this.filterActive.bind(this));
+    this.ui.toggleAll.addEventListener('click', this.toggleAll.bind(this));
+    // this.ui.removeTodo.addEventListener('click', this.removeTodo.bind(this));
   }
 
   addSelectors() {
@@ -24,10 +24,15 @@ class TodoController extends BaseController {
     this.addSelector('filterCompleted', '.filter-completed');
     this.addSelector('filterActive', '.filter-active');
     this.addSelector('filterAll', '.filter-all');
+    this.addSelector('toggleAll', '.toggle-all');
+    this.addSelector('removeTodo', '.destroy');
   }
 
   renderTodo(todo) {
-    const todoLi = View.buildTodoItem(todo, this.toggleComplete.bind(this));
+    const todoLi = View.buildTodoItem(todo,
+      this.toggleComplete.bind(this),
+      this.removeTodo.bind(this));
+
     this.ui.list.appendChild(todoLi);
   }
 
@@ -61,10 +66,22 @@ class TodoController extends BaseController {
     this.renderTodoList();
   }
 
+  toggleAll() {
+    this.model.todolist.getList().forEach((todo) => {
+      this.model.todolist.toggleCompleteById(todo.id);
+    });
+    this.renderTodoList();
+  }
+
   clearCompleted() {
     this.model.todolist.removeCompletedTodos();
     this.renderTodoList();
     this.renderFilters('filterAll');
+  }
+
+  removeTodo(event) {
+    this.model.todolist.removeTodoById(event.target.id);
+    this.renderTodoList();
   }
 
   filterCompleted() {
