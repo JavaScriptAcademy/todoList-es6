@@ -83,15 +83,13 @@ button {
   text-align: center;
   border: none;
   -webkit-appearance: none;
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
   line-height: 50px;
 }
 
 .toggle-all::before{
-  content: "❯";
-  font-size: 22px;
-  color: rgb(230, 230, 230);
+  content: "\2713";
+  font-size: 30px;
+  color: #2ecc71;
   padding: 10px 27px;
 }
 
@@ -149,18 +147,36 @@ button {
     text-decoration: line-through;
 }
 
+.todo-list li.completed label::before{
+  background-color: #d9d9d9;
+  border: none;
+}
+
 .todo-list li .destroy {
-  position: absolute;
-  top: 0;
-  right: 10px;
-  bottom: 0;
-  width: 40px;
-  height: 40px;
-  margin: auto 0;
-  font-size: 30px;
-  color:rgba(231, 76, 60, 1);
-  margin-bottom: 11px;
-  transition: color 0.2s ease-out;
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 10px;
+	bottom: 0;
+	width: 40px;
+	height: 40px;
+	margin: auto 0;
+	font-size: 30px;
+	color: #cc9a9a;
+	margin-bottom: 11px;
+	transition: color 0.2s ease-out;
+}
+
+.todo-list li .destroy:hover {
+	color: #af5b5e;
+}
+
+.todo-list li .destroy:after {
+	content: 'x';
+}
+
+.todo-list li:hover .destroy {
+	display: block;
 }
 
 footer {

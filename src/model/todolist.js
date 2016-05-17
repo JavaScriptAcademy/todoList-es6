@@ -31,6 +31,19 @@ class TodoList {
     todo.toggleComplete();
   }
 
+  toggleAll() {
+    const filteredList = this.getNotCompletedTodos();
+    if (filteredList.length === 0) {
+      this._todolist.forEach((todo) => {
+        this.toggleCompleteById(todo.id);
+      });
+    } else {
+      this.getNotCompletedTodos().forEach((todo) => {
+        this.toggleCompleteById(todo.id);
+      });
+    }
+  }
+
   getNotCompletedTodos() {
     const todos = this.filterListByCompletation(false);
 
@@ -69,7 +82,7 @@ class TodoList {
 
   getInfo() {
     const todos = this.getNotCompletedTodos();
-    const itemsText = todos.length === 1 ? 'item' : 'items';
+    const itemsText = [0, 1].indexOf(todos.length) === -1 ? 'items' : 'item';
 
     return `${todos.length} ${itemsText} left`;
   }

@@ -1,7 +1,7 @@
 import Element from './element';
 
 class View {
-  static buildTodoItem(todo, itemCallback) {
+  static buildTodoItem(todo, itemCallback, removeTodoCallback) {
     const todoLabel = new Element({
       tag: 'label',
       className: 'todo-title',
@@ -13,6 +13,7 @@ class View {
     const todoBtn = new Element({
       tag: 'button',
       className: 'destroy',
+      eventListener: removeTodoCallback,
     });
 
     const todoComponent = new Element({

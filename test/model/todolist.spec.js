@@ -52,6 +52,26 @@ describe('todolist', () => {
       });
     });
 
+    describe('completation and un completation', () => {
+      beforeEach(() => {
+        todolist = new TodoList;
+        todolist.addTodo('new todo0');
+      });
+
+      it('should be able to completed all todos', () => {
+        todolist.toggleAll();
+
+        expect(todolist.getNotCompletedTodos().length).to.equal(0);
+      });
+
+      it('should be able to uncomplete all todos when their status is completed', () => {
+        todolist.toggleCompleteById(todolist.getList()[0].id);
+        todolist.toggleAll();
+
+        expect(todolist.getCompletedTodos().length).to.equal(0);
+      });
+    });
+
     describe('filter todolist', () => {
       let todos;
 
